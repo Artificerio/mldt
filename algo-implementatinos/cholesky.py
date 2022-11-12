@@ -14,7 +14,7 @@ def cholesky(a) -> np.array:
 
     a = np.array(a, float)
     L = np.zeros_like(a)
-    n, m = np.shape(a)
+    n, _ = np.shape(a)
 
     if (not symmetric(a) and not positive_definite(a)):
         raise Exception("Input Matrix should be symmetric and positive-definite")
@@ -22,7 +22,7 @@ def cholesky(a) -> np.array:
     for j in range(n):
         for i in range(j,n):
             if i == j:
-                L[i,j] = np.sqrt(a[i,j] - np.sum(L[i,:j]) ** 2)
+                L[i,j] = np.sqrt(a[i,j] - np.sum(L[i,:j])**2)
             else:
                 L[i,j] = (a[i,j] - np.sum(L[i,:j] * L[j, :j])) / L[j,j]
     return L
