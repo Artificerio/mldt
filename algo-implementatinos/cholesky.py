@@ -1,15 +1,15 @@
 import numpy as np
 
-def symmetric(a, rtol=1e-05, atol=1e-08) -> bool:
+def symmetric(a, rtol=1e-05, atol=1e-08):
     assert(a.shape[0] == a.shape[1]), "Not a square matrix"
     return np.allclose(a, a.T, rtol=rtol, atol=atol)
 
-def positive_definite(a) -> bool:
+def positive_definite(a):
     return np.all(np.linalg.eigvals(a) > 0)
 
-def cholesky(a) -> np.array:
+def cholesky(a):
     """Performs Cholesky decomposition of a matrix which must be
-    a symmetric and positive definite matrix. The function returns 
+    a symmetric and positive definite matrix.The function returns 
     the lower variant triangular matrix L"""
 
     a = np.array(a, float)
@@ -36,4 +36,4 @@ H = [[3.2,3,0.5,1,2],
 A = np.array([[1,2],[2,3]], dtype=float)
 
 H = np.array(H, dtype=float)
-print(cholesky(A))
+print(cholesky(H))
