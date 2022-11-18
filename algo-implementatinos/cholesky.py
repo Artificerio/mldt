@@ -9,7 +9,7 @@ def positive_definite(a):
 
 def cholesky(a):
     """Performs Cholesky decomposition of a matrix which must be
-    a symmetric and positive definite matrix.The function returns 
+    a symmetric and positive definite matrix.The function returns
     the lower variant triangular matrix L"""
 
     a = np.array(a, float)
